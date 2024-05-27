@@ -13,25 +13,20 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            transition: background-color 0.3s, color 0.3s;
         }
         .logo {
             font-size: 75px;
             margin-top: 15%;
             font-weight: bold;
-            color: #4285F4; /* Google's blue color */
         }
         .logo span {
-            color: #EA4335; /* Google's red color */
+            color: #EA4335; /* Default color for other letters */
         }
-        .logo span:nth-child(3) {
-            color: #FBBC05; /* Google's yellow color */
-        }
-        .logo span:nth-child(4) {
-            color: #34A853; /* Google's green color */
-        }
-        .logo span:nth-child(5) {
-            color: #EA4335; /* Google's red color */
-        }
+        .logo span:nth-child(1) { color: #4285F4; /* W */ }
+        .logo span:nth-child(3) { color: #FBBC05; /* B */ }
+        .logo span:nth-child(4) { color: #34A853; /* G */ }
+        .logo span:nth-child(5) { color: #EA4335; /* L */ }
         .search-box {
             display: flex;
             align-items: center;
@@ -61,6 +56,54 @@
             font-size: 12px;
             color: #555;
         }
+        .github-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+        .github-button img {
+            width: 24px;
+            height: 24px;
+        }
+        /* Light mode styles */
+        @media (prefers-color-scheme: light) {
+            .github-button img {
+                content: url('github-mark.png');
+            }
+        }
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+            .search-box input[type="text"] {
+                background-color: #333;
+                border: 1px solid #555;
+                color: #e0e0e0;
+            }
+            .footer {
+                color: #bbb;
+            }
+            .github-button {
+                background-color: #333;
+            }
+        }
+        /* Mobile styles */
+        @media (max-width: 600px) {
+            .logo {
+                margin-top: 30%;
+            }
+        }
     </style>
     <script>
         window.onload = function() {
@@ -84,7 +127,10 @@
         <input type="submit" value="Google Search">
     </form>
     <div class="footer">
-    WEBGLE is an alternative Google homepage that redirects to a no AI version of Google Search.
+        WEBGLE is an alternative Google homepage that redirects to a no AI version of Google Search.
     </div>
+    <a href="https://github.com/Clevis22/webgle" class="github-button" target="_blank" title="View on GitHub">
+        <img src="github-mark-white.png" alt="GitHub Logo">
+    </a>
 </body>
 </html>
